@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--Geovanni Torres-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas con Local Storage</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        #notas-container { margin-top: 20px; }
+        .nota { background: #f8f9fa; padding: 10px; border: 1px solid #ddd; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h2>Notas</h2>
+    <form id="nota-form">
+        <input type="text" id="nota-texto" placeholder="Escribe tu nota" required>
+        <button type="submit">Guardar Nota</button>
+    </form>
+    <div id="notas-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", mostrarNotas);
+
+        document.getElementById("nota-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let notaTexto = document.getElementById("nota-texto").value;
+            if (notaTexto.trim() !== "") {
+                guardarNota(notaTexto);
+                document.getElementById("nota-texto").value = "";
+            }
+        });
+
+        function guardarNota(nota) {
+            let notas = JSON.parse(localStorage.getItem("notas")) || [];
+            notas.push(nota);
+            localStorage.setItem("notas", JSON.stringify(notas));
+            mostrarNotas();
+        }
+
+        function mostrarNotas() {
+            let notas = JSON.parse(localStorage.getItem("notas")) || [];
+            let notasContainer = document.getElementById("notas-container");
+            notasContainer.innerHTML = "";
+            notas.forEach((nota, index) => {
+                let div = document.createElement("div");
+                div.className = "nota";
+                div.textContent = nota;
+                let btnEliminar = document.createElement("button");
+                btnEliminar.textContent = "Eliminar";
+                btnEliminar.onclick = function() { eliminarNota(index); };
+                div.appendChild(btnEliminar);
+                notasContainer.appendChild(div);
+            });
+        }
+
+        function eliminarNota(index) {
+            let notas = JSON.parse(localStorage.getItem("notas")) || [];
+            notas.splice(index, 1);
+            localStorage.setItem("notas", JSON.stringify(notas));
+            mostrarNotas();
+        }
+    </script>
+</body>
+</html>
