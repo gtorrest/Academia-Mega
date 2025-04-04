@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS y Ciclos Básicos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      background-color: #4a90e2;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input {
+      padding: 5px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Contar de 2 en 2</h2>
+    <p id="conteo"></p>
+    <button onclick="contarDe2En2()">Contar</button>
+  </div>
+
+  <div class="card">
+    <h2>¿Es un número entero?</h2>
+    <input type="text" id="numero" placeholder="Ingresa un número">
+    <button onclick="verificarEntero()">Verificar</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function contarDe2En2() {
+      let resultado = '';
+      for (let i = 0; i <= 20; i += 2) {
+        resultado += i + ' ';
+      }
+      document.getElementById('conteo').textContent = resultado;
+    }
+
+    function verificarEntero() {
+      const valor = document.getElementById('numero').value;
+      const numero = Number(valor);
+      if (Number.isInteger(numero)) {
+        document.getElementById('resultado').textContent = `${numero} es un número entero.`;
+      } else if (!isNaN(numero)) {
+        document.getElementById('resultado').textContent = `${numero} NO es un número entero.`;
+      } else {
+        document.getElementById('resultado').textContent = `"${valor}" no es un número válido.`;
+      }
+    }
+  </script>
+
+</body>
+</html>
