@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--Geovanni Torres-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de notas</title>
+</head>
+
+
+<body>
+    <div class="calc-container">
+        <h2>Promediador</h2>
+        <form onsubmit="calcularPromedio(event)">
+          <input type="number" placeholder="Primer calificacion" id="nota1" required>
+          <input type="number" placeholder="Segunda calificacion"id="nota2" required>
+          <input type="number" placeholder="tercera calificacion"id="nota3" required>
+
+          <input type="submit" value="Calcular">
+        </form>
+        <div id="resultado"></div>
+      </div>
+</body>
+
+
+<style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calc-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    .calc-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3b78c0;
+    }
+  </style>
+  <script src="./script11.js"></script>
+</html>
