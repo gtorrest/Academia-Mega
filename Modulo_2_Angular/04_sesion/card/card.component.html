@@ -1,0 +1,28 @@
+<div class="card-container">
+  <div class="card">
+    <h2>clase </h2>
+    <img src="{{url}}" alt="Foto de perfil" class="profile-img" />
+    <h2 class="name">Interpolacion</h2>
+    <p class="email">karlmarx&#64;email.com</p>
+    <textarea class="message-box" placeholder="Escribe algo..." [(ngModel)]="texto"></textarea>
+    <p >Tu texto es{{texto}}</p>
+  </div>
+  <div class="card">
+    <h2>clase 4 </h2>
+    <img src="{{url}}" alt="Foto de perfil" class="profile-img" />
+    <h2 class="name">ng for, ng if</h2>
+    <p class="email">karlmarx&#64;email.com</p>
+    <textarea class="message-box" placeholder="Escribe algo para activar el ng if" [(ngModel)]="texto2"></textarea>
+    <ul *ngFor="let item of frutas">
+      <li *ngIf="texto2">{{item}}</li>
+    </ul>
+  </div>
+  <div class="card">
+    <img src="{{url}}" alt="Foto de perfil" class="profile-img" />
+    <h2 class="name">karl marx</h2>
+    <p class="email">karlmarx&#64;email.com</p>
+    <textarea class="message-box" placeholder="Escribe algo..." [(ngModel)]="texto"></textarea>
+    <p>{{texto}}</p>
+  </div>
+</div>
+
