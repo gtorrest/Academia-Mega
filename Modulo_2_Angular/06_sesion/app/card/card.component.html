@@ -1,0 +1,35 @@
+<div [ngClass]="'card-container'">
+  <div [ngClass]="'card'">
+    <h2>clase </h2>
+    <img src="{{url}}" alt="Foto de perfil" [ngClass]="'profile-img'" />
+    <h2 [ngClass]="'name'">Interpolacion</h2>
+    <p [ngClass]="'email'">karlmarx&#64;email.com</p>
+    <textarea [ngClass]="'message-box'" placeholder="Escribe algo..." [(ngModel)]="texto"></textarea>
+    <p >Tu texto es{{texto}}</p>
+  </div>
+  <div [ngClass]="'card'">
+    <h2>clase 4 </h2>
+    <img src="{{url}}" alt="Foto de perfil" [ngClass]="'profile-img'" />
+    <h2 [ngClass]="'name'">ng for, ng if</h2>
+    <p [ngClass]="'email'">karlmarx&#64;email.com</p>
+    <textarea [ngClass]="'message-box'" placeholder="Escribe algo para activar el ng if" [(ngModel)]="texto2"></textarea>
+    <ul *ngFor="let item of frutas">
+      <li *ngIf="texto2">{{item}}</li>
+    </ul>
+  </div>
+  <div [ngClass]="'card'">
+    <img src="{{url}}" alt="Foto de perfil" [ngClass]="'profile-img'" />
+    <h2 [ngClass]="'name'">karl marx</h2>
+    <p [ngClass]="'email'">karlmarx&#64;email.com</p>
+    <textarea [ngClass]="'message-box'" placeholder="Escribe algo..." [(ngModel)]="texto"></textarea>
+    <p>{{texto}}</p>
+  </div>
+  <div [ngClass]="'card'">
+    <h2>clase 6 input button </h2>
+    <img src="{{url}}" alt="Foto de perfil" [ngClass]="'profile-img'" />
+    <h2 [ngClass]="'name'">ng for, ng if</h2>
+    <p [ngClass]="'email'">karlmarx&#64;email.com</p>
+    <app-button [color] = "'blue'" [label]="'Aceptar'"></app-button>
+  </div>
+</div>
+
